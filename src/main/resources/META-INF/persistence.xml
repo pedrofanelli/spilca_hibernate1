@@ -13,10 +13,10 @@
 
         <!-- Specify the JDBC driver and connection properties -->
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/spring_practice"/>
-            <property name="javax.persistence.jdbc.user" value="your_username"/>
-            <property name="javax.persistence.jdbc.password" value="your_password"/>
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/spring_practice"/>
+            <property name="jakarta.persistence.jdbc.user" value="peter"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
 
             <!-- Specify Hibernate dialect -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
