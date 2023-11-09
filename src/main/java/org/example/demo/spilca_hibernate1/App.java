@@ -3,6 +3,7 @@ package org.example.demo.spilca_hibernate1;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import entities.Product;
 
 /**
  * Setting up HIBERNATE!
@@ -18,6 +19,11 @@ public class App
     	
     	em.getTransaction().begin();
     	
+    	Product product = new Product();
+    	product.setId(1L);
+    	product.setName("beer");
+    	
+    	em.persist(product); // add to context (and maybe if there are no changes, it will be inserted)
     	
     	
     	
