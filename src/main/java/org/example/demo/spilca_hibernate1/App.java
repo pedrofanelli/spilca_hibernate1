@@ -24,21 +24,29 @@ public class App
     	EntityManagerFactory emf = new HibernatePersistenceProvider()
     			.createContainerEntityManagerFactory(new CustomPersistenceUnitInfo(), new HashMap<>());
         
+    	try {
+    		
+    	
+    	
     	EntityManager em = emf.createEntityManager(); // represent the CONTEXT
     	
     	em.getTransaction().begin();
     	
     	Product product = new Product();
-    	product.setId(2L);
-    	product.setName("beer");
+    	product.setName("pasta");
     	
     	em.persist(product); // add to context (and maybe if there are no changes, it will be inserted)
     	
+    	em.getTransaction().commit(); // send the query
     	
     	
     	
-    	em.getTransaction().commit();
     	em.close();
+    	
+    	} finally {
+    		emf.close();
+    	}
+    	
     	
     }
 }
