@@ -12,6 +12,7 @@ import org.hibernate.jpa.HibernatePersistenceProvider;
 
 import entities.Product;
 
+
 /**
  * Setting up HIBERNATE!
  *
@@ -45,7 +46,7 @@ public class App
 	    	products.get(products.size()-1).setName("Hello Hibernate!!!");
 	    	
 	    	em.getTransaction().commit();
-	    	
+	    		    	
 	    	em.close();
 	    	
     	} finally {
