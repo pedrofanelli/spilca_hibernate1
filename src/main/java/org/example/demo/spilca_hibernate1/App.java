@@ -26,30 +26,28 @@ public class App
     			.createContainerEntityManagerFactory(new CustomPersistenceUnitInfo(), new HashMap<>());
         
     	try {
-    		
-    	
-    	
-    	EntityManager em = emf.createEntityManager(); // represent the CONTEXT
-    	
-    	em.getTransaction().begin();
-    	
-    	Product product = new Product();
-    	product.setName("pasta");
-    	
-    	em.persist(product); // add to context (and maybe if there are no changes, it will be inserted)
-    	
-    	em.getTransaction().commit(); // send the query
-    	
-    	em.getTransaction().begin();
-    	
-    	List<Product> products = em.createQuery("select p from Product p", Product.class).getResultList();
-    	
-    	products.get(products.size()-1).setName("Hello Hibernate!!!");
-    	
-    	em.getTransaction().commit();
-    	
-    	em.close();
-    	
+    		    	
+	    	EntityManager em = emf.createEntityManager(); // represent the CONTEXT
+	    	
+	    	em.getTransaction().begin();
+	    	
+	    	Product product = new Product();
+	    	product.setName("pasta");
+	    	
+	    	em.persist(product); // add to context (and maybe if there are no changes, it will be inserted)
+	    	
+	    	em.getTransaction().commit(); // send the query
+	    	
+	    	em.getTransaction().begin();
+	    	
+	    	List<Product> products = em.createQuery("select p from Product p", Product.class).getResultList();
+	    	
+	    	products.get(products.size()-1).setName("Hello Hibernate!!!");
+	    	
+	    	em.getTransaction().commit();
+	    	
+	    	em.close();
+	    	
     	} finally {
     		emf.close();
     	}
