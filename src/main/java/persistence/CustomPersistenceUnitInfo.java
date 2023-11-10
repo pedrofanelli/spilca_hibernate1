@@ -12,6 +12,8 @@ import jakarta.persistence.spi.ClassTransformer;
 import jakarta.persistence.spi.PersistenceUnitInfo;
 import jakarta.persistence.spi.PersistenceUnitTransactionType;
 
+import com.zaxxer.hikari.HikariDataSource;
+
 /*
  * Es un reemplazo al modo de usar persistence.xml
  */
@@ -37,8 +39,13 @@ public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
 
 	@Override
 	public DataSource getJtaDataSource() {
-		// TODO Auto-generated method stub
-		return null;
+
+		HikariDataSource hikari = new HikariDataSource();
+		
+		hikari.setJdbcUrl("jdbc:postgresql://localhost:5432/spring_practice");
+		hikari.setUsername("peter");
+		
+		return hikari;
 	}
 
 	@Override
@@ -68,7 +75,7 @@ public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
 	@Override
 	public List<String> getManagedClassNames() {
 		// TODO Auto-generated method stub
-		return null;
+		return List.of("entities.Product");
 	}
 
 	@Override
