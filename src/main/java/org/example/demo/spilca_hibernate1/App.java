@@ -6,6 +6,7 @@ import jakarta.persistence.Persistence;
 import persistence.CustomPersistenceUnitInfo;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.hibernate.jpa.HibernatePersistenceProvider;
 
@@ -39,7 +40,9 @@ public class App
     	
     	em.getTransaction().commit(); // send the query
     	
+    	em.getTransaction().begin();
     	
+    	List<Product> products = em.createQuery("select p from Product p", Product.class).getResultList();
     	
     	em.close();
     	
