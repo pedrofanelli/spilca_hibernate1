@@ -44,6 +44,10 @@ public class App
     	
     	List<Product> products = em.createQuery("select p from Product p", Product.class).getResultList();
     	
+    	products.get(products.size()-1).setName("Hello Hibernate!!!");
+    	
+    	em.getTransaction().commit();
+    	
     	em.close();
     	
     	} finally {
