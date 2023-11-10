@@ -1,12 +1,14 @@
 package org.example.demo.spilca_hibernate1;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 import java.util.HashMap;
 import java.util.List;
 
 import org.hibernate.jpa.HibernatePersistenceProvider;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import entities.Product;
 import jakarta.persistence.EntityManager;
@@ -20,7 +22,7 @@ public class AppTest
 {
     
     @Test
-    public void shouldAnswerWithTrue()
+    public void storeMessage()
     {
     	EntityManagerFactory emf = new HibernatePersistenceProvider()
     			.createContainerEntityManagerFactory(new CustomPersistenceUnitInfo(), new HashMap<>());
@@ -42,10 +44,14 @@ public class AppTest
 	    	
 	    	List<Product> products = em.createQuery("select p from Product p", Product.class).getResultList();
 	    	
-	    	products.get(products.size()-1).setName("Hello Hibernate!!!");
+	    	products.get(products.size()-1).setName("USING TEST CLASS");
 	    	
 	    	em.getTransaction().commit();
-	    		    	
+	    	
+	    	assertAll(() -> assertEquals(4, products.size()),
+	    	        () -> assertEquals("USING TEST CLASS",
+	    	        		products.get(products.size()-1).getName()));	    
+	    	
 	    	em.close();
 	    	
     	} finally {
