@@ -12,24 +12,27 @@ import jakarta.persistence.spi.ClassTransformer;
 import jakarta.persistence.spi.PersistenceUnitInfo;
 import jakarta.persistence.spi.PersistenceUnitTransactionType;
 
+/*
+ * Es un reemplazo al modo de usar persistence.xml
+ */
 public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
 
 	@Override
 	public String getPersistenceUnitName() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return "Mi-Unidad!";
 	}
 
 	@Override
 	public String getPersistenceProviderClassName() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return "org.hibernate.jpa.HibernatePersistenceProvider";
 	}
 
 	@Override
 	public PersistenceUnitTransactionType getTransactionType() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return PersistenceUnitTransactionType.RESOURCE_LOCAL;
 	}
 
 	@Override
