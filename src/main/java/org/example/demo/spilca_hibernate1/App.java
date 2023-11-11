@@ -16,6 +16,8 @@ import entities.Product;
 /**
  * Setting up HIBERNATE!
  * Using XML Persistence and then "programmatically" using a java class CustomPersistenceUnitInfo
+ * In both of them we are using JPA specification!
+ * Check the test class with more info!
  */
 public class App 
 {

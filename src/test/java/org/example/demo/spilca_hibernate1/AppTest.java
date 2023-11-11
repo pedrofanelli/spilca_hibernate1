@@ -16,7 +16,8 @@ import jakarta.persistence.EntityManagerFactory;
 import persistence.CustomPersistenceUnitInfo;
 
 /**
- * Unit test for simple App.
+ * Firstly we tested the Hibernate with JPA
+ * Then the Hibernate NATIVE!
  */
 public class AppTest 
 {
