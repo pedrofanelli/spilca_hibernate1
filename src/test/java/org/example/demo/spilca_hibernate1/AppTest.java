@@ -41,8 +41,9 @@ public class AppTest
 	    	em.getTransaction().commit(); // send the query
 	    	
 	    	em.getTransaction().begin();
-	    	
+	    											// Jakarta Persistence Query Language!
 	    	List<Product> products = em.createQuery("select p from Product p", Product.class).getResultList();
+	    	// it refers to the persistence class name!
 	    	
 	    	products.get(products.size()-1).setName("USING TEST CLASS");
 	    	
