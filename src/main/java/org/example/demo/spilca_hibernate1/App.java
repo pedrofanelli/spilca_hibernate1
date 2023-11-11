@@ -15,7 +15,7 @@ import entities.Product;
 
 /**
  * Setting up HIBERNATE!
- *
+ * Using XML Persistence and then "programmatically" using a java class CustomPersistenceUnitInfo
  */
 public class App 
 {
