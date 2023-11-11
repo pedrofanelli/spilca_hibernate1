@@ -34,12 +34,12 @@ public class HelloWorldHibernateNative {
             session.beginTransaction();
 
             Product product = new Product();
-            product.setName("Hello World from Hibernate!");
+            product.setName("Hello World from Native Hibernate!");
 
             session.persist(product);
 
             session.getTransaction().commit();
-            // INSERT into MESSAGE (ID, TEXT)
+            // INSERT into PRODUCT (ID, TEXT)
             // values (1, 'Hello World from Hibernate!')
             session.beginTransaction();
 
@@ -47,13 +47,13 @@ public class HelloWorldHibernateNative {
             criteriaQuery.from(Product.class);
 
             List<Product> products = session.createQuery(criteriaQuery).getResultList();
-            // SELECT * from MESSAGE
+            // SELECT * from PRODUCT
 
             session.getTransaction().commit();
 
             assertAll(
-                    () -> assertEquals(1, products.size()),
-                    () -> assertEquals("Hello World from Hibernate!", products.get(0).getName())
+                    () -> assertEquals(9, products.size()),
+                    () -> assertEquals("Hello World from Native Hibernate!", products.get(products.size()-1).getName())
             );
         }
     }
