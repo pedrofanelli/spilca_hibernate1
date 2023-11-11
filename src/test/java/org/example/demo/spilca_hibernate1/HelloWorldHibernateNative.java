@@ -15,7 +15,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import entities.Product;
 
-
+/**
+ * You can go from native to JPA implementation
+ * You can unwrap a SessionFactory from an EntityManagerFactory
+ * But you can also do it viceversa, use a Hibernate Configuration to get an EntityManagerFactory
+ * 
+ * @author peter
+ *
+ */
 public class HelloWorldHibernateNative {
 
 	private static SessionFactory createSessionFactory() {
@@ -43,6 +50,7 @@ public class HelloWorldHibernateNative {
             // values (1, 'Hello World from Hibernate!')
             session.beginTransaction();
 
+            //we build a query programmatically
             CriteriaQuery<Product> criteriaQuery = session.getCriteriaBuilder().createQuery(Product.class);
             criteriaQuery.from(Product.class);
 
